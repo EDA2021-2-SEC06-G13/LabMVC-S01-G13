@@ -42,6 +42,7 @@ def printMenu():
     print("Opciones:")
     print("1- Cargar Libros")
     print("2- Cargar Tags")
+    print("3- Cargar Tags de libros")
     # TODO: Modificaciones para el laboratorio 1.
     print("0- Salir")
 
@@ -58,7 +59,8 @@ def loadTags():
     Carga los Tags
     """
     return controller.loadTags('GoodReads/tags.csv')
-
+def loadBook_tags():
+    return controller.loadBooks('GoodReads/book_tags-small.csv')
 
 """
 Menu principal
@@ -76,6 +78,10 @@ while True:
         tags = loadTags()
         print('Total de tags cargados: ' + str(lt.size(tags)))
 
+    elif int(inputs[0]) == 3:
+        print("Cargando información de tag de libros....")
+        book_tags = loadBook_tags()
+        print('Total cargados: ' + str(lt.size(book_tags)))
     # TODO: Modificaciones para el laboratorio 1.
 
     else:
